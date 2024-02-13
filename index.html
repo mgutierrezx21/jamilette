@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter!</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Your custom CSS styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* To ensure the video covers the entire background */
+        }
+
+        video#backgroundVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; /* To place the video behind other content */
+        }
+
+        .wrap {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Fallback background color */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative; /* Add this to keep content above the video */
+            z-index: 1; /* Add this to keep content above the video */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: #800020;
+            margin-bottom: 20px;
+        }
+
+        .postcard {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff; /* White background color for the postcard */
+        }
+
+        .letter {
+            margin-bottom: 20px;
+        }
+
+        .message_form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .push {
+            margin-bottom: 10px;
+        }
+
+        span {
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-family: 'Garamond', serif; /* Use elegant serif font for the letter */
+            font-size: 1.2em; /* Increase font size for better readability */
+        }
+
+        span[readonly] {
+            cursor: default;
+        }
+
+        .address {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .mail_stamp {
+            align-self: flex-end;
+            margin-bottom: 10px;
+        }
+
+        #address {
+            font-style: italic;
+            color: #555;
+            text-align: right;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        footer p {
+            color: #888;
+        }
+
+        @media (max-width: 600px) {
+            .postcard {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+  <video autoplay loop muted id="backgroundVideo">
+    <source src="particles_Comp_1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+
+    <div class="wrap">
+        <h1>Love Letter</h1>
+        <div class="postcard">
+            <div class="letter" id="letter">
+                <div class="message_form">
+                    <p class="push">Dear Jamilette, <span id="recipient" class="push"></span></p>
+                    <span id="message" class="message_to_recipient" readonly>
+                      Your eyes are like smoldering coals, merciless as they burn my soul in the most delightful way. Love you.
+                    </span>
+                    <p class="push">Yours Lovingly,</p>
+                    <span id="sender_name" class="sender">MG</span>
+                </div>
+            </div>
+            <div class="address">
+                <img src="youandme.jpg" class="mail_stamp" style="width: 200px; height: auto; border: 2px solid #ccc;">
+                <p id="address">2023 MG ST,<br>
+                    My Heart,<br>
+                    For You.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" autoplay loop>
+      <source src="jpimalwaysbyyourside.mp3" type="audio/mpeg"> <!-- Replace "music.mp3" with the actual path to your audio file -->
+      Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var backgroundMusic = document.getElementById('backgroundMusic');
+        if (backgroundMusic) {
+          backgroundMusic.volume = 0.40; // Set volume to 40%
+        }
+      });
+    </script>
+
+</body>
+</html>
